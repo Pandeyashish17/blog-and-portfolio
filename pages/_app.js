@@ -2,14 +2,16 @@ import "../styles/globals.css";
 import Layout from "../components/Layout";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
-
+import { ToastContainer } from "react-toastify";
 const inter = Inter({
   variable: "--inter-font",
+  subsets: ["latin"],
 });
 
 function MyApp({ Component, pageProps }) {
   return (
     <Layout inter={inter}>
+      <ToastContainer />
       <Head>
         <link
           rel="apple-touch-icon"
