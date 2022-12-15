@@ -1,11 +1,12 @@
 import Link from "next/link";
 import React from "react";
 import Gradient from "../components/Gradient";
-import { Socials } from "../Socials";
+import { Services, Socials } from "../Socials";
+
 const About = () => {
   return (
     <>
-      <section className="py-10  sm:py-16 lg:py-24">
+      <section className=" py-10  sm:py-16 lg:py-24 ">
         <Gradient />
         <div className="max-w-5xl px-4 mx-auto sm:px-6 lg:px-8">
           <div className="grid items-center md:grid-cols-2 gap-y-10 md:gap-x-20">
@@ -39,53 +40,62 @@ const About = () => {
           </div>
         </div>
 
-        <section className="text-gray-600 body-font">
-          <div className="container px-5 py-24 mx-auto flex flex-col">
-            <div className="lg:w-4/6 mx-auto">
-              <div className="rounded-lg h-64 overflow-hidden">
+        <div className="">
+          <div className="space-y-16 container xl:max-w-7xl mx-auto px-4 py-16 lg:px-8 lg:py-32">
+            <div>
+              <svg
+                stroke="currentColor"
+                fill="none"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                className="text-indigo-600 mb-5 hi-outline hi-code inline-block w-24 h-24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                ></path>
+              </svg>
+              <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+                I am <span className="font-light">ashish</span>
+              </h2>
+              <h3 className="text-lg md:text-xl md:leading-relaxed font-medium lg:w-1/2 text-gray-600">
+                A web developer and freelancer.
+              </h3>
+            </div>
+
+            <div className="flex space-x-2">
+              <div>
                 <img
-                  alt="content"
-                  className="object-cover object-center h-full w-full"
-                  src="/business.jpg"
+                  src="https://source.unsplash.com/gMsnXqILjp4/1280x800"
+                  alt="Featured Image"
+                  className="rounded-lg"
+                />
+              </div>
+              <div>
+                <img
+                  src="https://source.unsplash.com/c3tNiAb098I/600x800"
+                  alt="Featured Image"
+                  className="rounded-lg"
                 />
               </div>
             </div>
-            <section class="text-gray-600 ">
-              <div class="container px-5 py-24 mx-auto flex flex-wrap">
-                <div class="lg:w-1/2 w-full mb-10 lg:mb-0 rounded-lg overflow-hidden">
-                  <img
-                    alt="feature"
-                    class="object-cover object-center h-full w-full"
-                    src="/man.jpg"
-                  />
-                </div>
-                <div class="flex flex-col flex-wrap lg:py-6 -mb-10 lg:w-1/2 lg:pl-12 lg:text-left text-center">
-                  <p className="leading-relaxed text-lg mb-4 ">
-                    Hi there! My name is Ashish and I am a web developer and
-                    freelancer. I have been working in the field of web
-                    development for the past 5 years and have had the
-                    opportunity to work on a wide range of projects for clients
-                    from various industries.
-                  </p>
-                  <p className="leading-relaxed text-lg mb-4">
-                    I specialize in Full Stack web and App development. I am
-                    skilled in using a variety of technologies, including MERN
-                    stack ,Svelte, Python, React Native . I am always looking to
-                    learn new technologies and stay up-to-date with the latest
-                    trends in the field.
-                  </p>
-                  <p className="leading-relaxed text-lg mb-4">
-                    Whether you are looking to create a new website, redesign an
-                    existing one, or add new features and functionality to your
-                    site, I am here to help. I would love the opportunity to
-                    discuss your project and see how I can assist you in
-                    achieving your online goals. Please feel free to contact me
-                    to learn more about my services and to discuss your project
-                    in more detail. I look forward to working with you!
-                  </p>
-                </div>
-              </div>
-            </section>
+            <p className="leading-relaxed text-gray-600">
+              I have been working in the field of web development for the past 5
+              years and have had the opportunity to work on a wide range of
+              projects for clients from various industries. I specialize in Full
+              Stack web and App development. I am skilled in using a variety of
+              technologies, including MERN stack ,Svelte, Python, React Native .
+              I am always looking to learn new technologies and stay up-to-date
+              with the latest trends in the field. Whether you are looking to
+              create a new website, redesign an existing one, or add new
+              features and functionality to your site, I am here to help. I
+              would love the opportunity to discuss your project and see how I
+              can assist you in achieving your online goals. Please feel free to
+              contact me to learn more about my services and to discuss your
+              project in more detail. I look forward to working with you!
+            </p>
             <div className="flex justify-center items-center mt-2 ">
               <div className=" p-2 flex gap-4 rounded-lg justify-center items-center">
                 {Socials.map((item, i) => (
@@ -100,7 +110,7 @@ const About = () => {
               </div>
             </div>
           </div>
-        </section>
+        </div>
       </section>
     </>
   );

@@ -1,8 +1,13 @@
 import { forwardRef } from "react";
 import Link from "next/link";
-import { HomeIcon, CreditCardIcon, UserIcon } from "@heroicons/react/24/solid";
+import {
+  HomeIcon,
+  CreditCardIcon,
+  UserIcon,
+  CodeBracketSquareIcon,
+} from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
-import { PhoneIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { DocumentMagnifyingGlassIcon, PhoneIcon, UserCircleIcon } from "@heroicons/react/24/outline";
 import { Socials } from "../Socials";
 
 const SideBar = forwardRef(({ showNav }, ref) => {
@@ -20,9 +25,19 @@ const SideBar = forwardRef(({ showNav }, ref) => {
       icon: UserCircleIcon,
     },
     {
+      name: "Blog",
+      path: "/blog",
+      icon: DocumentMagnifyingGlassIcon,
+    },
+    {
       name: "Contact",
       path: "/contact",
       icon: PhoneIcon,
+    },
+    {
+      name: "Services",
+      path: "/services",
+      icon: CodeBracketSquareIcon,
     },
     {
       name: "billing",
@@ -32,7 +47,7 @@ const SideBar = forwardRef(({ showNav }, ref) => {
   ];
   return (
     <div ref={ref} className="fixed w-56 h-full bg-white shadow-sm">
-      <div className="flex justify-center mt-6 mb-14">
+      <div className="flex justify-center mt-6 mb-14 cursor-pointeryy">
         <picture>
           <Link href="/">
             {" "}

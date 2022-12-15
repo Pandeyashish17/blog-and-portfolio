@@ -38,139 +38,26 @@ export default function Post({ post }) {
   return (
     <>
       {post && (
-        // <article className="max-w-screen-md mx-auto ">
-        //   <h1 className="mt-2 mb-3 text-3xl font-semibold tracking-tight text-center lg:leading-snug text-brand-primary lg:text-4xl dark:text-white">
-        //     {post.title}
-        //   </h1>
-        //   <p className="text-gray-800 dark:text-gray-400">{post.author.name}</p>
-        //   <div className="relative z-0 max-w-screen-lg mx-auto overflow-hidden lg:rounded-lg aspect-video">
-        //     {post?.mainImage && (
-        //       <Image {...GetImage(post?.mainImage)} placeholder="blur" />
-        //     )}
-        //   </div>
-        //   <div className="mx-auto my-3 prose prose-base dark:prose-invert prose-a:text-blue-500">
-        //     {post.body && <PortableText value={post.body} />}
-        //   </div>
-        // </article>
-        <div className="relative py-16  overflow-hidden">
-          {" "}
-          <div className="hidden lg:block lg:absolute lg:inset-y-0 lg:h-full lg:w-full">
-            <div
-              className="relative h-full text-lg max-w-prose mx-auto"
-              aria-hidden="true"
-            >
-              <svg
-                className="absolute top-12 left-full transform translate-x-32"
-                width={404}
-                height={384}
-                fill="none"
-                viewBox="0 0 404 384"
-              >
-                <defs>
-                  <pattern
-                    id="74b3fd99-0a6f-4271-bef2-e80eeafdf357"
-                    x={0}
-                    y={0}
-                    width={20}
-                    height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect
-                      x={0}
-                      y={0}
-                      width={4}
-                      height={4}
-                      className="text-gray-200"
-                      fill="currentColor"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  width={404}
-                  height={384}
-                  fill="url(#74b3fd99-0a6f-4271-bef2-e80eeafdf357)"
-                />
-              </svg>
-              <svg
-                className="absolute top-1/2 right-full transform -translate-y-1/2 -translate-x-32"
-                width={404}
-                height={384}
-                fill="none"
-                viewBox="0 0 404 384"
-              >
-                <defs>
-                  <pattern
-                    id="f210dbf6-a58d-4871-961e-36d5016a0f49"
-                    x={0}
-                    y={0}
-                    width={20}
-                    height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect
-                      x={0}
-                      y={0}
-                      width={4}
-                      height={4}
-                      className="text-gray-200"
-                      fill="currentColor"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  width={404}
-                  height={384}
-                  fill="url(#f210dbf6-a58d-4871-961e-36d5016a0f49)"
-                />
-              </svg>
-              <svg
-                className="absolute bottom-12 left-full transform translate-x-32"
-                width={404}
-                height={384}
-                fill="none"
-                viewBox="0 0 404 384"
-              >
-                <defs>
-                  <pattern
-                    id="d3eb07ae-5182-43e6-857d-35c643af9034"
-                    x={0}
-                    y={0}
-                    width={20}
-                    height={20}
-                    patternUnits="userSpaceOnUse"
-                  >
-                    <rect
-                      x={0}
-                      y={0}
-                      width={4}
-                      height={4}
-                      className="text-gray-200"
-                      fill="currentColor"
-                    />
-                  </pattern>
-                </defs>
-                <rect
-                  width={404}
-                  height={384}
-                  fill="url(#d3eb07ae-5182-43e6-857d-35c643af9034)"
-                />
-              </svg>
+        <div className="  px-4  lg:px-8  ">
+          <div className="text-center">
+            <div className="text-sm uppercase font-bold tracking-wider mb-1 text-indigo-700">
+              {imageTitle}
             </div>
+            <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
+              Improve your workflow in 3 easy steps
+            </h2>
+            <h3 className="text-lg md:text-xl md:leading-relaxed font-medium text-gray-600 lg:w-2/3 mx-auto">
+              <a className="text-indigo-600 hover:text-indigo-400">John Doe</a>{" "}
+              on <span className="font-semibold">March 15, 2021</span> · 8 min
+              read
+            </h3>
           </div>
-          <div className="relative px-4 sm:px-6 lg:px-8">
-            <div className="text-lg max-w-prose mx-auto">
-              <h1>
-                <span className="block text-base text-center text-indigo-600 font-semibold tracking-wide uppercase">
-                  {imageTitle}
-                </span>
-                <span className="mt-2 block text-3xl text-center leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                  {title}
-                </span>
-              </h1>
-              <img
-                src={`/api/image?title=${imageTitle}&subtitle=${imageSubtitle}`}
-                className="mt-4 rounded-md"
-              />
+          <article className="pt-8 ">
+            <img
+              src={`/api/image?title=${imageTitle}&subtitle=${imageSubtitle}`}
+              className="mt-4 rounded-xl "
+            />
+            <div className="mt-8">
               {body && (
                 <BlockContent
                   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
@@ -248,7 +135,7 @@ export default function Post({ post }) {
                 />
               )}{" "}
             </div>
-          </div>
+          </article>
         </div>
       )}
     </>

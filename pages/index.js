@@ -13,7 +13,10 @@ export default function Home({ posts }) {
       </Head>
       <HeroSection />
 
-      <div className=" pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
+      <div
+        className=" pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8 "
+        data-aos="slide-up"
+      >
         <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
           <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
             {posts &&
@@ -48,17 +51,17 @@ export default function Home({ posts }) {
 }
 
 export async function getStaticProps({ params }) {
-  const query = `*[_type=="post"] | order(publishedAt desc){
-  _id,title,slug,excerpt,publishedAt,categories,
-  author->{
-  name,image
-}
-}`;
+  const query = `*[_type=="frontpage"]{
+    posts[]-> {
+    
+    ...
+  }
+  } `;
   const posts = await client.fetch(query);
 
   return {
     props: {
-      posts,
+      posts: posts[0].posts,
     },
     revalidate: 10,
   };
