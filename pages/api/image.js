@@ -22,6 +22,9 @@ export default async function (req) {
 
     const titlePost = searchParams.get("title");
     const subtitlePost = searchParams.get("subtitle");
+    const height = searchParams.get("height");
+    const width = searchParams.get("width");
+    console.log(width)
     // http://localhost:3000/api/og?title=titleishere
     // http://localhost:3000/api/og?title=opengraph&subtitle=Dynamic%20image%20using%20edge%20function
 
@@ -86,12 +89,11 @@ export default async function (req) {
               {subtitlePost}
             </span>
           </div>
-        
         </div>
       ),
       {
-        width: 1200,
-        height: 600,
+        width: width,
+        height: height,
         fonts: [
           {
             name: "Inter",

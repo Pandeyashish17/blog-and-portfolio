@@ -1,11 +1,25 @@
+import { motion } from "framer-motion";
+import Head from "next/head";
 import React from "react";
 import Gradient from "../components/Gradient";
 import { ContactDetails } from "../Socials";
+
 const Contact = () => {
   return (
     <>
+      <Head>
+        <title>Contact | Ashish Pandey </title>
+      </Head>
       <section className="py-10  sm:py-16 lg:py-24 ">
-        <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
+        <motion.div
+          className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl"
+          initial={{ y: 25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: 0.6,
+            duration: 0.75,
+          }}
+        >
           <Gradient />
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="text-3xl font-bold leading-tight text-gray-900 sm:text-4xl lg:text-5xl">
@@ -224,7 +238,7 @@ const Contact = () => {
               </div>
             </div>
           </div>
-        </div>
+        </motion.div>
       </section>
     </>
   );

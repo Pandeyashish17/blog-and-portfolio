@@ -4,25 +4,16 @@ import client from "../../lib/sanity";
 import BlockContent from "@sanity/block-content-to-react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import ErrorPage from "next/error";
-import GetImage from "../../utils/getImage";
 import { groq } from "next-sanity";
+import { motion } from "framer-motion";
+import Link from "next/link";
+import ReactTimeago from "react-timeago";
 
 export default function Post({ post }) {
-  console.log(post);
-  const {
-    title,
-    imageSubtitle,
-    imageTitle,
-    body,
-    _createdAt,
-    author,
-    categories,
-  } = post;
+
+
   const router = useRouter();
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />;
-  }
+
   const notify = (text) =>
     toast(text, {
       position: "top-right",
@@ -38,31 +29,45 @@ export default function Post({ post }) {
   return (
     <>
       {post && (
-        <div className="  px-4  lg:px-8  ">
+        <motion.div
+          className="  px-4  lg:px-8  "
+          initial={{ y: 25, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: 0.6,
+            duration: 0.75,
+          }}
+        >
           <div className="text-center">
             <div className="text-sm uppercase font-bold tracking-wider mb-1 text-indigo-700">
-              {imageTitle}
+              <Link href={`/blog?search=${post?.imageTitle}`}> {post?.imageTitle}</Link>
             </div>
             <h2 className="text-3xl md:text-4xl font-extrabold mb-4">
-              Improve your workflow in 3 easy steps
+              {post?.title}
             </h2>
             <h3 className="text-lg md:text-xl md:leading-relaxed font-medium text-gray-600 lg:w-2/3 mx-auto">
-              <a className="text-indigo-600 hover:text-indigo-400">John Doe</a>{" "}
-              on <span className="font-semibold">March 15, 2021</span> · 8 min
-              read
+              <Link
+                href="/about"
+                className="text-indigo-600 hover:text-indigo-400 capitalize"
+              >
+                {post?.author.name}
+              </Link>{" "}
+              <span className="font-semibold">
+                <ReactTimeago date={post?._createdAt} />
+              </span>
             </h3>
           </div>
           <article className="pt-8 ">
             <img
-              src={`/api/image?title=${imageTitle}&subtitle=${imageSubtitle}`}
+              src={`/api/image?title=${post?.imageTitle}&subtitle=${post?.imageSubtitle}`}
               className="mt-4 rounded-xl "
             />
             <div className="mt-8">
-              {body && (
+              {post?.body && (
                 <BlockContent
                   dataset={process.env.NEXT_PUBLIC_SANITY_DATASET}
                   projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}
-                  blocks={body}
+                  blocks={post?.body}
                   serializers={{
                     types: {
                       h1: (props) => (
@@ -136,7 +141,7 @@ export default function Post({ post }) {
               )}{" "}
             </div>
           </article>
-        </div>
+        </motion.div>
       )}
     </>
   );

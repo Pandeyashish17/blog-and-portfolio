@@ -1,9 +1,15 @@
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 export default function ErrorPage() {
   return (
     <>
-      <main
+      <motion.main
+        initial={{ y: 25, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          delay: 0.6,
+          duration: 0.75,
+        }}
         className="min-h-full bg-cover bg-top sm:bg-top rounded-md "
         style={{
           backgroundImage:
@@ -18,7 +24,7 @@ export default function ErrorPage() {
             Uh oh! I think you’re lost.
           </h1>
           <p className="mt-2 text-lg font-medium text-black text-opacity-50">
-           {` It looks like the page you’re looking for doesn't exist.`}
+            {` It looks like the page you’re looking for doesn't exist.`}
           </p>
           <div className="mt-6">
             <Link
@@ -29,7 +35,7 @@ export default function ErrorPage() {
             </Link>
           </div>
         </div>
-      </main>
+      </motion.main>
     </>
   );
 }

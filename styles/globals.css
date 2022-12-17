@@ -5,6 +5,9 @@
 body {
   background-color: rgb(243 244 246);
 }
-.scrollbar-hide::-webkit-scrollbar {
-  display: none;
+.cursive {
+  font-family: cursive;
 }
+/* .scrollbar-hide::-webkit-scrollbar {
+  display: none;
+} */

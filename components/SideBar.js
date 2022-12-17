@@ -7,7 +7,12 @@ import {
   CodeBracketSquareIcon,
 } from "@heroicons/react/24/solid";
 import { useRouter } from "next/router";
-import { DocumentMagnifyingGlassIcon, PhoneIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import {
+  DocumentMagnifyingGlassIcon,
+  FolderIcon,
+  PhoneIcon,
+  UserCircleIcon,
+} from "@heroicons/react/24/outline";
 import { Socials } from "../Socials";
 
 const SideBar = forwardRef(({ showNav }, ref) => {
@@ -30,6 +35,11 @@ const SideBar = forwardRef(({ showNav }, ref) => {
       icon: DocumentMagnifyingGlassIcon,
     },
     {
+      name: "Portfolio",
+      path: "/portfolio",
+      icon: FolderIcon,
+    },
+    {
       name: "Contact",
       path: "/contact",
       icon: PhoneIcon,
@@ -38,11 +48,6 @@ const SideBar = forwardRef(({ showNav }, ref) => {
       name: "Services",
       path: "/services",
       icon: CodeBracketSquareIcon,
-    },
-    {
-      name: "billing",
-      path: "/billing",
-      icon: UserIcon,
     },
   ];
   return (

@@ -3,7 +3,7 @@ import SideBar from "./SideBar";
 import TopBar from "./TopBar";
 import { Transition } from "@headlessui/react";
 
-export default function Layout({ children, inter }) {
+export default function Layout({ children }) {
   const [showNav, setShowNav] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -28,7 +28,7 @@ export default function Layout({ children, inter }) {
   }, []);
 
   return (
-    <div className={inter.variable}>
+    <div>
       <TopBar showNav={showNav} setShowNav={setShowNav} />
       <Transition
         as={Fragment}
